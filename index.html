@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠・課題報告アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon.png" type="image/png">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="勤怠アプリ">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>勤怠管理</h1>
+            <div id="current-time" class="time-display">--:--</div>
+            <div id="current-date" class="date-display">----/--/--</div>
+        </header>
+
+        <main>
+            <div class="user-info">
+                <p>研修生ID: <span id="user-id">user01</span></p>
+                <p>氏名: <span id="user-name">あなたの名前</span></p>
+            </div>
+
+            <div class="status-card">
+                <p>現在のステータス</p>
+                <h2 id="status-text">出勤前</h2>
+            </div>
+
+            <div class="action-buttons">
+                <button id="clock-in-btn" class="btn btn-primary">
+                    <span class="icon">☀️</span> 出勤
+                </button>
+                <button id="clock-out-btn" class="btn btn-secondary" disabled>
+                    <span class="icon">🌙</span> 退勤
+                </button>
+                <button id="task-complete-btn" class="btn btn-accent">
+                    <span class="icon">🎉</span> 課題完了
+                </button>
+            </div>
+        </main>
+
+        <div id="loading-overlay" class="hidden">
+            <div class="spinner"></div>
+            <p>送信中...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registered', reg))
+                .catch(err => console.error('Service Worker registration failed', err));
+        }
+    </script>
+</body>
+
+</html>
