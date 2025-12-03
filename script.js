@@ -1,7 +1,6 @@
 // Configuration
 // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
-const GAS_WEB_APP_URL = 'YOUR_GAS_WEB_APP_URL_HERE';
-
+const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby9UU1n7cfuF56VOQOgipD6sFGOicc5VOi69MFBuZiDm6Tf5AjdLyYW828a02QDRxh8/exec';
 const userId = 'user01';
 const userName = 'あなたの名前';
 
